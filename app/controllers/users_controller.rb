@@ -5,7 +5,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    User.create(users_params)
+    @user = User.create(users_params)
+
+    if @user
+      redirect_to welcome_path
+    else
+      render :new
+    end
   end
 
   private
