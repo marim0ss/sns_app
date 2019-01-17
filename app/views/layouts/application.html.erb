@@ -10,11 +10,20 @@
 
   <body>
     <header>
-      <%= link_to "ホームへ", root_path %>
-      <%= link_to "ユーザー新規登録", new_user_path %>
-      <%= link_to "ログインページ", welcome_path %>
-      <%= link_to "投稿一覧ページ", posts_path %>
-      <%= link_to "新規投稿", new_post_path %>
+      <!-- ログインしているときのメニュー -->
+      <% if session[:user_id] != nil %>
+        <%= link_to "ホームへ", root_path %>
+        <%= link_to "投稿一覧ページ", posts_path %>
+        <%= link_to "新規投稿", new_post_path %>
+
+        ログインしているユーザーid：
+        <%= session[:user_id] %>
+        <%= link_to "ログアウト", logout_path, method: :delete %>
+      <!-- ログアウト状態のメニュー -->
+      <% else %>
+        <%= link_to "ユーザー新規登録", new_user_path %>
+        <%= link_to "ログイン", welcome_path %>
+      <% end %>
     </header>
 
     <%= yield %>

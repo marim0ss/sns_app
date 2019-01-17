@@ -4,11 +4,14 @@ class PostsController < ApplicationController
   end
 
   def new
-  @post = Post.new
+    @post = Post.new
   end
 
   def create
-    Post.create(posts_params)
+    Post.create(
+      content: posts_params[:content],
+      user_id: session[:user_id]
+    )
     redirect_to posts_path
   end
 
