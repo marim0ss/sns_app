@@ -1,8 +1,13 @@
-<p>post一覧</p>
+<h1>投稿一覧</h1>
 
 <% @posts.each do |post| %>
-  <p>投稿者のID：<%= post.user_id %></p>
-  <p>内容：<%= post.content %></p>
-  <p>投稿No.：<%= post.id %></p>
+
+  <p>内容：
+    <%= link_to(post.content, post_path(post.id)) %>
+  </p>
+  <p>
+    投稿者のID：<%= post.user_id %>,
+    投稿No.<%= post.id %>
+  </p>
   <hr>
 <% end %>
