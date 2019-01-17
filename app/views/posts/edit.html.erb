@@ -1,0 +1,6 @@
+<h2>投稿を編集</h2>
+
+<%= form_for @post, url: post_path(@post.id), html: { method: :patch } do |f| %>
+	<p><%= f.text_field :content %></p>
+	<input type="submit" name="" value="更新する">
+<% end %>
