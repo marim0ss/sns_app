@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     Post.create(
       content: posts_params[:content],
-      user_id: session[:user_id]
+      user_id: current_user.id
     )
     redirect_to posts_path
   end
