@@ -1,7 +1,20 @@
-<p>ログインページ</p>
+<div class="container-fluid center-content text-center">
 
-<%= form_tag login_path, { method: :post } do %>
-<p>メールアドレス：<input type="email" name="email"></p>
-<p>パスワード<input type="password" name="password"></p>
-  <input type="submit" value="ログイン">
-<% end %>
+  <div class="card" style="width: 30rem;">
+    <h2 class="card-header">ログイン</h2>
+    <div class="card-body">
+
+      <%= form_tag login_path, { method: :post } do %>
+        <div class="form-inputs">
+          <p>メールアドレス：<input type="email" name="email"></p>
+          <p>パスワード：<input type="password" name="password"></p>
+        </div>
+        <input type="submit" value="ログイン">
+      <% end %>
+
+      <div class="font-weight-light text-center mt-3">
+        <%= link_to "新規ユーザーはこちらから", new_user_path, class: "font-bold" %>
+      </div>
+    </div>
+  </div>
+</div>

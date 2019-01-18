@@ -1,8 +1,21 @@
-<h1>ユーザー新規登録</h1>
+<div class="container-fluid center-content text-center">
 
-<%= form_for @user, url: "/users" , html: { method: :post } do |f| %>
-  <p>メールアドレス：<%= f.text_field :email %></p>
-  <p>パスワード：<%= f.text_field :password %></p>
-  <p>パスワード確認用：<%= f.text_field :password_confirmation %></p>
-  <input type="submit" value="新規登録">
-<% end %>
+  <div class="card" style="width: 30rem;">
+    <h2 class="card-header">ユーザー新規登録</h2>
+    <div class="card-body">
+
+      <%= form_for @user, url: "/users" , html: { method: :post } do |f| %>
+        <div class="form-inputs">
+          <p>メールアドレス：<%= f.text_field :email %></p>
+          <p>パスワード：<%= f.text_field :password %></p>
+          <p>パスワード確認用：<%= f.text_field :password_confirmation %></p>
+        </div>
+        <input type="submit" value="新規登録">
+      <% end %>
+
+      <div class="font-weight-light text-center mt-3">
+        <%= link_to "登録済ですか？こちらからログイン", welcome_path, class: "font-bold" %>
+      </div>
+    </div>
+  </div>
+</div>
