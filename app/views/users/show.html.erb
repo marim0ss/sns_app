@@ -1,0 +1,7 @@
+<p>ユーザー詳細</p>
+<p>ID:<%= @user.id %></p>
+<!-- イメージ画像 -->
+<p>
+  <%= image_tag @user.image_url(:thumb) if @user.image.present? %>
+</p>
+<%= link_to "編集する", edit_user_path(@user.id) %>

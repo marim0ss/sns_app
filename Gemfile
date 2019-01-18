@@ -58,3 +58,7 @@ gem 'sorcery'
 
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+
+# Image Uploader
+gem 'carrierwave'
+gem 'rmagick'
