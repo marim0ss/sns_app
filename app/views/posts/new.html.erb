@@ -1,5 +1,12 @@
-<%= form_for @post, url: "/posts", html: { method: :post } do |f| %>
-<h1>新規投稿</h1>
-<p><%= f.text_area :content %></p>
-<%= f.submit "投稿" %>
-<% end %>
+<div class="container-fluid center-content">
+
+  <div class="card" style="width: 30rem;">
+    <h2 class="card-header text-center">新規投稿</h2>
+    <div class="card-body">
+      <%= form_for @post, url: "/posts", html: { method: :post } do |f| %>
+        <p><%= f.text_area :content %></p>
+        <%= f.submit "投稿" %>
+      <% end %>
+    </div>
+  </div>
+</div>

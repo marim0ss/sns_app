@@ -1,6 +1,15 @@
-<h2>投稿を編集</h2>
+<div class="container-fluid center-content">
 
-<%= form_for @post, url: post_path(@post.id), html: { method: :patch } do |f| %>
-	<p><%= f.text_field :content %></p>
-	<input type="submit" name="" value="更新する">
-<% end %>
+  <div class="card" style="width: 30rem;">
+    <h2 class="card-header text-center">投稿の詳細</h2>
+    <div class="card-body">
+			<%= form_for @post, url: post_path(@post.id), html: { method: :patch } do |f| %>
+				<p>
+					<%= f.text_area :content %>
+				</p>
+					<input type="submit" name="" value="更新する">
+			<% end %>
+			<%= link_to "一覧へ戻る", posts_path %>
+		</div>
+	</div>
+</div>

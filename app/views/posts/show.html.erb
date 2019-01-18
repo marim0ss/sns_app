@@ -1,8 +1,23 @@
-<h2>投稿の詳細</h2>
-<p>投稿者のID：<%= @post.user_id %></p>
-<p>内容：<%= @post.content %></p>
-<p>投稿No.<%= @post.id %></p>
-<p>日時:<%= @post.created_at %></p>
-<%= link_to "編集", edit_post_path(@post.id) %>
-<%= link_to "削除", post_path(@post.id), method: :delete,
-                    data: {confirm: "この投稿を削除しますか？"} %>
+<div class="container-fluid center-content">
+
+  <div class="card" style="width: 30rem;">
+    <h2 class="card-header text-center">投稿の詳細</h2>
+    <div class="card-body">
+        <p>投稿者のID：<%= @post.user_id %></p>
+        <!-- 内容 -->
+        <p class="border-0 py-2 bg-light rounded text-info">
+          <%= @post.content %>
+        </p>
+        <p>投稿No.<%= @post.id %></p>
+        <p>日時:<%= @post.created_at %></p>
+
+        <hr>
+        <p class="text-center">
+        <%= link_to "編集", edit_post_path(@post.id) %>
+        <%= link_to "一覧へ", posts_path %>
+        <%= link_to "削除", post_path(@post.id), method: :delete,
+                            data: {confirm: "この投稿を削除しますか？"} %>
+        </p>
+    </div>
+  </div>
+</div>
