@@ -9,23 +9,8 @@
   </head>
 
   <body>
-    <header>
-      <!-- ログインしているときのメニュー -->
-      <% if current_user %>
-        <%= link_to "ホームへ", root_path %>
-        <%= link_to "投稿一覧ページ", posts_path %>
-        <%= link_to "新規投稿", new_post_path %>
-
-        ログインしているユーザーid：
-        <%= current_user.id %>
-        <%= link_to "ログアウト", logout_path, method: :delete %>
-      <!-- ログアウト状態のメニュー -->
-      <% else %>
-        <%= link_to "ユーザー新規登録", new_user_path %>
-        <%= link_to "ログイン", welcome_path %>
-      <% end %>
-    </header>
-
+    <!-- ヘッダー呼び出し -->
+    <%= render 'layouts/header.html.erb' %>
     <div>
       <p id="notice"><%= flash[:notice] %></p>
       <p id="alert"><%= flash[:alert] %></p>
