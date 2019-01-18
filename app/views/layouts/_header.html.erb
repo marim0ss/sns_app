@@ -18,11 +18,24 @@
         <li class="nav-item active">
           <%= link_to "新規投稿", new_post_path, class: "nav-link" %>
         </li>
+
+        <!-- --------------------------------------------------- -->
+        <!-- ログインしているユーザーの画像からリンク -->
+        <!-- 画像なければIDを表示 ---------------------->
+        <!-- --------------------------------------------------- -->
         <li class="nav-item">
           <span class="navbar-text">
-            <%= link_to "ログインユーザーid：#{current_user.id}", user_path(current_user.id) %>
+            <% if current_user.image.present? %>
+              <%= link_to image_tag(
+              current_user.image_url(:thumb), :height => '40px:'
+              ),
+              user_path(current_user.id) %>
+            <% else %>
+              <%= link_to "ログインユーザーid：#{current_user.id}", user_path(current_user.id) %>
+            <% end %>
           </span>
          </li>
+         <!-- --------------------------------------------------- -->
          <li class="nav-item">
           <%= link_to "ログアウト", logout_path, method: :delete,
                                                 class: "nav-link" %>
