@@ -1,12 +1,30 @@
-<h1>投稿一覧</h1>
+<h2 class="text-center text-info mt-2">みんなの投稿</h2>
 
-<% @posts.each do |post| %>
+<div class="album" py-5 bg-light text-center>
 
-  <p>内容：
-    <%= link_to(post.content, post_path(post.id)) %>
-  </p>
-  <p>
-    投稿者のID：<%= post.user_id %>
-  </p>
-  <hr>
-<% end %>
+  <div class="album py-5">
+    <div class="container-fluid">
+      <div class="row">
+
+        <% @posts.each do |post| %>
+          <div class="col-md-4">
+            <div class="card mb-3 shadow-md">
+              <div class="card-body">
+
+                <!-- 内容 -->
+                <p class="border-0 py-2 bg-light rounded">
+                  <%= link_to(post.content, post_path(post.id)) %>
+                </p>
+                <hr>
+                <p>
+                  投稿者のID：<%= post.user_id %>
+                </p>
+              </div>
+            </div><!-- <div class="card mb-3 shadow-md"> -->
+          </div><!--<div class="col-md-4 -->
+        <% end %>
+
+      </div><!-- <div class="row"> -->
+    </div>
+  </div>
+</div>

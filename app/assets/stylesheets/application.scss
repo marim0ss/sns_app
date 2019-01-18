@@ -15,3 +15,12 @@
  */
 
 @import "bootstrap";
+
+// 位置調整
+//divなどを中央配置。ナビバー分上の余白を空けた コンテンツの中央配置
+.center-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}

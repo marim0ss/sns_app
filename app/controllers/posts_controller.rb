@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     Post.create(
       content: posts_params[:content],
-      user_id: session[:user_id]
+      user_id: current_user.id
     )
     redirect_to posts_path
   end
@@ -25,8 +25,9 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
+
     post.update(posts_params)
-    redirect_to posts_path
+    redirect_to(posts_path, notice: '編集しました')
   end
 
   def destroy
