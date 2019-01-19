@@ -8,6 +8,13 @@
         <p class="border-0 py-2 bg-light rounded text-info">
           <%= @post.content %>
         </p>
+
+        <% if Like.find_by(user_id: current_user.id, post_id: @post.id)  %>
+          いいねされてる
+        <% else %>
+          いいねしてない
+        <% end %>
+        <hr>
         <p>投稿No.<%= @post.id %></p>
         <p>日時:<%= @post.created_at %></p>
 
