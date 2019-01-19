@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  # get 'users/new', to: 'users#new'
-  # post 'users', to: 'users#create'
+  # いいねする
+  post "likes/:post_id/create", to: 'likes#create'
+  # いいね取り消す
+  delete "likes/:post_id/destroy", to: 'likes#destroy'
 
   root to: 'posts#index'
 
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
   # , only: [:new, :create]
 
   resources :posts
+
 end
