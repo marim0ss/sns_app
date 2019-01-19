@@ -7,24 +7,24 @@
       <div class="row">
 
         <% @posts.each do |post| %>
-          <div class="col-md-4">
-            <div class="card mb-3 shadow-md">
-              <div class="card-body">
+        <div class="col-md-4">
+          <div class="card mb-3 shadow-md">
+            <div class="card-body">
 
-                <!-- 内容 -->
-                <p class="border-0 py-2 bg-light rounded">
-                  <%= link_to(post.content, post_path(post.id)) %>
-                </p>
-                <hr>
-                <p>
-                  投稿者のID：<%= post.user_id %>
-                </p>
-              </div>
-            </div><!-- <div class="card mb-3 shadow-md"> -->
+              <!-- 内容 -->
+              <p class="border-0 py-2 bg-light rounded">
+                <%= link_to(post.content, post_path(post.id)) %>
+              </p>
+              <hr>
+              <p>
+                投稿者のID：<%= post.user_id %>
+              </p>
+            </div>
+          </div><!-- <div class="card mb-3 shadow-md"> -->
           </div><!--<div class="col-md-4 -->
-        <% end %>
+            <% end %>
 
-      </div><!-- <div class="row"> -->
-    </div>
-  </div>
-</div>
+          </div><!-- <div class="row"> -->
+          </div>
+        </div>
+      </div>

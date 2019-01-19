@@ -1,16 +1,13 @@
 <p>ユーザー情報の編集</p>
 
+<%= form_for @user, url: user_path(@user.id), html: { method: :patch } do |f| %>
+  <p>画像：
+    <%= image_tag @user.image_url(:thumb) if @user.image.present? %>
+  </p>
+  <p>
+    <%= f.file_field :image %>
+  </p>
+  <input type="submit" name="" value="更新する">
+<% end %>
 
-  <%= form_for @user, url: user_path(@user.id), html: { method: :patch } do |f| %>
-
-
-    <p>画像：
-      <%= image_tag @user.image_url(:thumb) if @user.image.present? %>
-    </p>
-    <p>
-      <%= f.file_field :image %>
-    </p>
-      <input type="submit" name="" value="更新する">
-  <% end %>
-
-  <%= link_to "詳細へ戻る", user_path(@user.id) %>
+<%= link_to "詳細へ戻る", user_path(@user.id) %>

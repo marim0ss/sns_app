@@ -4,8 +4,10 @@
     <h2 class="card-header text-center">新規投稿</h2>
     <div class="card-body">
       <%= form_for @post, url: "/posts", html: { method: :post } do |f| %>
-        <p><%= f.text_area :content %></p>
-        <%= f.submit "投稿" %>
+      <p>
+        <%= f.text_area :content, :class => 'form-control' %>
+      </p>
+      <%= f.submit "投稿" %>
       <% end %>
     </div>
   </div>
