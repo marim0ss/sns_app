@@ -17,6 +17,9 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
+    # いいねの数を表示
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   def edit

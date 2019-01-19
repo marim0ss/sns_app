@@ -15,7 +15,9 @@
           <p>
             <!-- いいねしてる状態 →いいねを取り消す-->
             <%= link_to("/likes/#{@post.id}/destroy", method: :delete) do %>
-              <i class="fas fa-heart"></i>
+              <i class="fas fa-heart text-danger">
+                <%= @likes_count %>
+              </i>
             <% end %>
             いいねされています
           </p>
@@ -23,7 +25,9 @@
           <p>
             <!-- いいねしてない状態 →いいねデータを作成する-->
             <%= link_to("/likes/#{@post.id}/create", method: :post) do %>
-              <i class="far fa-heart"></i>
+              <i class="far fa-heart text-danger">
+                <%= @likes_count %>
+              </i>
             <% end %>
             いいねする
           </p>
