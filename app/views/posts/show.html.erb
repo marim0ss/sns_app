@@ -10,13 +10,24 @@
         </p>
 
         <!-- いいね表示 ------------------------------------------ -->
-        <% if Like.find_by(user_id: current_user.id, post_id: @post.id)  %>
-          <!-- いいねしてる状態 →いいねを取り消す-->
-          <%= link_to("いいね取り消す", "/likes/#{@post.id}/destroy", method: :delete) %>
-        <% else %>
-          <!-- いいねしてない状態 →いいねデータを作成する-->
-          <%= link_to("いいねする", "/likes/#{@post.id}/create", method: :post) %>
-        <% end %>
+
+          <% if Like.find_by(user_id: current_user.id, post_id: @post.id)  %>
+          <p>
+            <!-- いいねしてる状態 →いいねを取り消す-->
+            <%= link_to("/likes/#{@post.id}/destroy", method: :delete) do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+            いいねされています
+          </p>
+          <% else %>
+          <p>
+            <!-- いいねしてない状態 →いいねデータを作成する-->
+            <%= link_to("/likes/#{@post.id}/create", method: :post) do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+            いいねする
+          </p>
+          <% end %>
         <!-- -------------------------------------------------- -->
         <hr>
         <p>投稿No.<%= @post.id %></p>
